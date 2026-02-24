@@ -25,12 +25,16 @@ vim.g.mapleader = " "
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("x", "<leader>p", [["_dP]])
-vim.keymap.set('n', '<C-b>', ':!build<CR>', { silent = true })
-vim.keymap.set('n', '<C-s>', ':w<CR><>', { silent = true })
-vim.keymap.set('n', '<F5>', ':!run<CR>', { silent = true })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+if vim.fn.has("win32") then
+	vim.keymap.set('n', '<C-b>', ':!build<CR>', { silent = true })
+	vim.keymap.set('n', '<F5>', ':!run<CR>', { silent = true })
+else
+	vim.keymap.set('n', '<C-b>', ':!./build<CR>', { silent = true })
+	vim.keymap.set('n', '<F5>', ':!./run<CR>', { silent = true })
+end
 
 -- Map <A-j>, <A-k>, <A-h>, <A-l> to navigate between windows in any modes
 vim.keymap.set({ 't', 'i' }, '<A-h>', '<C-\\><C-n><C-w>h')
