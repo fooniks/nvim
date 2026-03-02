@@ -32,8 +32,8 @@ if vim.fn.has("win32") == 1 then
 	vim.keymap.set('n', '<C-b>', ':!build<CR>', { silent = true })
 	vim.keymap.set('n', '<F5>', ':!run<CR>', { silent = true })
 else
-	vim.keymap.set('n', '<C-b>', ':!./build<CR>', { silent = true })
-	vim.keymap.set('n', '<F5>', ':!./run<CR>', { silent = true })
+	vim.keymap.set('n', '<C-b>', ':!./build.sh<CR>', { silent = true })
+	vim.keymap.set('n', '<F5>', ':!./run.sh<CR>', { silent = true })
 end
 
 -- Map <A-j>, <A-k>, <A-h>, <A-l> to navigate between windows in any modes
@@ -66,13 +66,13 @@ require("lazy").setup({
 			"ThePrimeagen/harpoon",
 			branch = "harpoon2",
 			dependencies = { "nvim-lua/plenary.nvim" }
-		}
+		},
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
 	-- install = { colorscheme = { "retrobox" } },
 	-- automatically check for plugin updates
-	checker = { enabled = true },
+	checker = { enabled = true, notify = false },
 })
 
 local harpoon = require("harpoon")
