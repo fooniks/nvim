@@ -29,8 +29,8 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 if vim.fn.has("win32") == 1 then
-	vim.keymap.set('n', '<C-b>', ':!./build<CR>', { silent = true })
-	vim.keymap.set('n', '<F5>', ':!./run<CR>', { silent = true })
+	vim.keymap.set('n', '<C-b>', ':!.\build<CR>', { silent = true })
+	vim.keymap.set('n', '<F5>', ':!.\run<CR>', { silent = true })
 else
 	vim.keymap.set('n', '<C-b>', ':!./build.sh<CR>', { silent = true })
 	vim.keymap.set('n', '<F5>', ':!./run.sh<CR>', { silent = true })
