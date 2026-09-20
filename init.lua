@@ -31,6 +31,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 if vim.fn.has("win32") == 1 then
 	vim.keymap.set('n', '<C-b>', ':!.\\build<CR>', { silent = true })
 	vim.keymap.set('n', '<F5>', ':!.\run<CR>', { silent = true })
+	vim.keymap.set('t', '<C-u>', '<C-\\><C-n>i<Esc>')
 else
 	vim.keymap.set('n', '<C-b>', ':!./build.sh<CR>', { silent = true })
 	vim.keymap.set('n', '<F5>', ':!./run.sh<CR>', { silent = true })
@@ -145,7 +146,7 @@ require("oil").setup({
   -- Set to `false` to remove a keymap
   -- See :help oil-actions for a list of all available actions
   keymaps = {
-    ["g?"] = { "actions.show_help", mode = "n" },
+	["g?"] = { "actions.show_help", mode = "n" },
     ["<CR>"] = "actions.select",
     ["<C-s>"] = { "actions.select", opts = { vertical = true } },
     ["<C-h>"] = { "actions.select", opts = { horizontal = true } },
@@ -289,6 +290,8 @@ require("oil").setup({
     border = nil,
   },
 })
+
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 local harpoon = require("harpoon")
 
