@@ -21,8 +21,7 @@ vim.pack.add({
 	'https://github.com/stevearc/oil.nvim',
 	'https://github.com/nvim-mini/mini.pick',
 	'https://github.com/chomosuke/typst-preview.nvim',
-	--TODO: Harpoon replacement
-})
+}) --TODO: Harpoon replacement
 
 vim.opt.termguicolors = true
 vim.cmd('colorscheme gruber-darker')
@@ -33,3 +32,5 @@ require('oil').setup()
 vim.keymap.set('n', '-', ":Oil<CR>")
 require('mini.pick').setup()
 vim.keymap.set('n', '<leader>e', ":Pick files<CR>")
+require('typst-preview').setup{ dependencies_bin = { tinymist = 'tinymist', },
+}
