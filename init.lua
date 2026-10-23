@@ -2,8 +2,9 @@ vim.o.number = true
 vim.o.relativenumber = true
 vim.o.signcolumn = 'no'
 vim.o.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.splitright = true
+vim.o.shiftwidth = 4
+vim.o.splitright = true
+vim.o.termguicolors = true
 
 vim.g.maplocalleader = ' '
 vim.g.mapleader = ' '
@@ -21,7 +22,6 @@ vim.pack.add({
 	'https://github.com/nvim-mini/mini.pick',
 	'https://github.com/chomosuke/typst-preview.nvim',
 })
-vim.opt.termguicolors = true
 vim.cmd('colorscheme gruber-darker')
 vim.cmd('hi Normal guibg=NONE')
 vim.cmd('hi NormalNC guibg=NONE')
