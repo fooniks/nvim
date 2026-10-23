@@ -11,18 +11,16 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 vim.keymap.set({'n', 'v', 'x'}, '<leader>y', '"+y')
-for _, key in ipairs({'y','d','p','P'}) do
+for _, key in ipairs({'y','Y','d','D','p','P'}) do
 	vim.keymap.set({'n', 'v', 'x'}, '<leader>'..key, '"+'..key)
 end
--- :lua vim.pack.update() -- updates plugins
--- :lua vim.pack.del({'plugin_name'}) -- remove a plugin
+
 vim.pack.add({
 	'https://github.com/blazkowolf/gruber-darker.nvim',
 	'https://github.com/stevearc/oil.nvim',
 	'https://github.com/nvim-mini/mini.pick',
 	'https://github.com/chomosuke/typst-preview.nvim',
-}) --TODO: Harpoon replacement
-
+})
 vim.opt.termguicolors = true
 vim.cmd('colorscheme gruber-darker')
 vim.cmd('hi Normal guibg=NONE')
